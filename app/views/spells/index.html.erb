@@ -1,22 +1,60 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-lg">
+<h1 class="mb-4">Spells</h1>
 
-<h1>Spells</h1>
-
-<%= form_tag spells_path, method: :get do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search spells" %>
-  <%= select_tag :spell_college, options_for_select(@spell_colleges, params[:spell_college]), include_blank: true %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-<div id="spells">
-  <% @spells.each do |spell| %>
-    <%= render spell %>
-    <p>
-      <%= link_to "Show this spell", spell %>
-    </p>
-  <% end %>
+<div class="row mb-4">
+  <div class="col-md-6">
+    <%= form_tag spells_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search spells", class: "form-control me-2" %>
+      <%= select_tag :spell_college, options_for_select(@spell_colleges, params[:spell_college]), include_blank: true, class: "form-select me-2" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-6 text-end">
+    <%= link_to "New spell", new_spell_path, class: "btn btn-success", id: "new-spell-button", style: "display: none;" %>
+  </div>
 </div>
 
-<%= link_to "New spell", new_spell_path %>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <% @spells.each do |spell| %>
+      <div class="col">
+        <%= link_to spell_path(spell), class: "card h-100 text-decoration-none" do %>
+          <div class="card-body d-flex justify-content-between">
+            <div>
+              <h5 class="card-title"><%= spell.spell %></h5>
+              <p class="card-text description-truncate"><%= spell.description %></p>
+              <div class="d-flex">
+        <p class="card-text"><strong>Cost:</strong> <%= spell.cost_to_cast %></p>
+        <% if spell.cost_to_maintain.present? %>
+          <p class="card-text ms-4"><strong>Maintain:</strong> <%= spell.cost_to_maintain %></p>
+        <% end %>
+        <% if spell.time_to_cast.present? %>
+          <p class="card-text ms-4"><strong>Casting Time:</strong> <%= spell.time_to_cast %></p>
+        <% end %>
+        <% if spell.duration.present? %>
+          <p class="card-text ms-4"><strong>Duration:</strong> <%= spell.duration %></p>
+        <% end %>
+      </div>
+            </div>
+            <div>
+              <p class="card-text"><%= spell.spell_college %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
 <%= paginate @spells %>
+</div>
+
+  <script>
+  function toggleButtonVisibility() {
+    var button = document.getElementById("new-spell-button");
+    var checkbox = document.getElementById("show-button");
+    if (checkbox.checked) {
+      button.style.display = "block";
+    } else {
+      button.style.display = "none";
+    }
+  }
+</script>

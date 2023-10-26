@@ -1,17 +1,32 @@
 
 
-    <header>
-      <h1>Welcome to GURPS Character</h1>
+    <header class="bg-light">
+      <div class="container py-3">
+      <h1 class="text-center">Welcome to GURPS Character</h1>
+      </div>
     </header>
-    <main>
-      <p>This website is a tool for managing characters in the GURPS tabletop roleplaying game.</p>
-      <p>Check out the <a href="/about">about page</a> to learn more about the data used on this site.</p>
-      <p>Also take a look at: </p> <ul><li><a href="/spells">spells</a></li><li><a href="/skills">skills</a></li><li><a href="/advantages">advantages</a></li><li><a href="/disadvantages">disadvantages</a></li><li><a href="/characters">characters</a></li></ul>
-      <h2>Create a new character</h2>
+    <main class="container py-3">
+      <div class="row">
+        <div class="col-md-8">
+      <p class="lead">This website is a tool for managing characters in the GURPS tabletop roleplaying game.</p>
+      <p class="lead">Check out the <a href="/about">about page</a> to learn more about the data used on this site.</p>
+      <p class="lead">Also take a look at: </p>
+      <ul class="list-unstyled"><li><a href="/spells">spells</a></li><li><a href="/skills">skills</a></li><li><a href="/advantages">advantages</a></li><li><a href="/disadvantages">disadvantages</a></li><li><a href="/characters">characters</a></li></ul>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+      <h2 class="card-title">Create a new character</h2>
       <form action="/characters" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br>
-        <input type="submit" value="Create character">
+        <div class="mb-3">
+        <label class="form-label" for="name">Name:</label>
+        <input class="form-label" type="text" id="name" name="name"><br>
+        <input class="btn btn-primary" type="submit" value="Create character">
+        </div>
       </form>
+      </div>
+      </div>
+      </div>
+      </div>
     </main>
 

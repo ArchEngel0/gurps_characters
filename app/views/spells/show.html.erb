@@ -1,21 +1,55 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-lg">
 
-<%= render @spell %>
+<p class="text-success"><%= notice %></p>
+
+<div class="card mb-4">
+  <div class="card-body d-flex justify-content-between">
+    <div>
+      <h5 class="card-title"><%= @spell.spell %></h5>
+      <p class="card-text"><%= @spell.spell_class %></p>
+      <p class="card-text"><%= @spell.description %></p>
+      <div class="d-flex">
+        <p class="card-text"><strong>Cost:</strong> <%= @spell.cost_to_cast %></p>
+        <% if @spell.cost_to_maintain.present? %>
+          <p class="card-text ms-4"><strong>Maintain:</strong> <%= @spell.cost_to_maintain %></p>
+        <% end %>
+        <% if @spell.time_to_cast.present? %>
+          <p class="card-text ms-4"><strong>Casting Time:</strong> <%= @spell.time_to_cast %></p>
+        <% end %>
+        <% if @spell.duration.present? %>
+          <p class="card-text ms-4"><strong>Duration:</strong> <%= @spell.duration %></p>
+        <% end %>
+      </div>
+      <div class="d-flex mt-2">
+        <p class="card-text"><strong>Prerequisites:</strong> <%= @spell.prerequisites %></p>
+          <p class="card-text ms-4"><strong>Difficulty:</strong> <%= @spell.difficulty %></p>
+      </div>
+      <p class="card-text"><strong>Item Enchantment Requirements:</strong> <%= @spell.item_enchantment %></p>
+    </div>
+    <div>
+      <p class="card-text"><%= @spell.spell_college %></p>
+    </div>
+  </div>
+</div>
 
 <%# character name, and link to character %>
 <% character = Character.find(@spell.character_id) %>
-<div>
-  Character: <%= link_to character.name, character_path(character) %>
+<div class="mb-4">
+  <p class="mb-0">Character:</p>
+  <h5><%= link_to character.name, character_path(character) %></h5>
 </div>
-<p></p>
 
-<div>
-  <%= link_to "Edit this spell", edit_spell_path(@spell) %> |
-  <%= link_to "Back to spells", spells_path %>
+<div class="mb-4">
+  <%= link_to "Edit this spell", edit_spell_path(@spell), class: "btn btn-primary me-2" %>
+  <%= link_to "Back to spells", spells_path, class: "btn btn-secondary" %>
+</div>
 
-  <%= button_to "Destroy this spell", @spell, method: :delete, id: "destroy-button", style: "display: none;" %>
+<div class="mb-4">
+  <%= button_to "Destroy this spell", @spell, method: :delete, id: "destroy-button", style: "display: none;", class: "mt-3 btn btn-danger" %>
+</div>
+</div>
 
-  <script>
+<script>
   function toggleButtonVisibility() {
     var button = document.getElementById("destroy-button");
     var checkbox = document.getElementById("show-button");
@@ -26,4 +60,3 @@
     }
   }
 </script>
-</div>

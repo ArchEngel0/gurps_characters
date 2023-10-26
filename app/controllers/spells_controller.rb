@@ -12,7 +12,7 @@ class SpellsController < ApplicationController
       @spells = @spells.where(spell_college: params[:spell_college]) if params[:spell_college].present?
     end
 
-    @spells = @spells.page(params[:page]).per(5)
+    @spells = @spells.page(params[:page]).per(8)
   end
 
   # GET /spells/1 or /spells/1.json
