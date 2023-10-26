@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Spells</h1>
+
+<%= form_tag spells_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search spells" %>
+  <%= select_tag :spell_college, options_for_select(@spell_colleges, params[:spell_college]), include_blank: true %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="spells">
+  <% @spells.each do |spell| %>
+    <%= render spell %>
+    <p>
+      <%= link_to "Show this spell", spell %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New spell", new_spell_path %>
+
+<%= paginate @spells %>

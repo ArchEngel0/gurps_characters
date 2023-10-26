@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Advantages</h1>
+
+<%= form_tag advantages_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search advantages" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="advantages">
+  <% @advantages.each do |advantage| %>
+    <%= render advantage %>
+    <p>
+      <%= link_to "Show this advantage", advantage %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New advantage", new_advantage_path %>
+
+<%= paginate @advantages %>

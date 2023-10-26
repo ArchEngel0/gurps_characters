@@ -1,0 +1,77 @@
+<%= form_with(model: spell) do |form| %>
+  <% if spell.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(spell.errors.count, "error") %> prohibited this spell from being saved:</h2>
+
+      <ul>
+        <% spell.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :spell, style: "display: block" %>
+    <%= form.text_field :spell %>
+  </div>
+
+  <div>
+    <%= form.label :spell_class, style: "display: block" %>
+    <%= form.text_field :spell_class %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :duration, style: "display: block" %>
+    <%= form.text_field :duration %>
+  </div>
+
+  <div>
+    <%= form.label :cost_to_cast, style: "display: block" %>
+    <%= form.text_field :cost_to_cast %>
+  </div>
+
+  <div>
+    <%= form.label :cost_to_maintain, style: "display: block" %>
+    <%= form.text_field :cost_to_maintain %>
+  </div>
+
+  <div>
+    <%= form.label :time_to_cast, style: "display: block" %>
+    <%= form.text_field :time_to_cast %>
+  </div>
+
+  <div>
+    <%= form.label :prerequisites, style: "display: block" %>
+    <%= form.text_field :prerequisites %>
+  </div>
+
+  <div>
+    <%= form.label :difficulty, style: "display: block" %>
+    <%= form.text_field :difficulty %>
+  </div>
+
+  <div>
+    <%= form.label :spell_college, style: "display: block" %>
+    <%= form.text_field :spell_college %>
+  </div>
+
+  <div>
+    <%= form.label :item_enchantment, style: "display: block" %>
+    <%= form.text_field :item_enchantment %>
+  </div>
+
+  <div>
+    <%= form.label :character_id, style: "display: block" %>
+    <%= form.text_field :character_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

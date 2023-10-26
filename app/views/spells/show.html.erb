@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @spell %>
+
+<%# character name, and link to character %>
+<% character = Character.find(@spell.character_id) %>
+<div>
+  Character: <%= link_to character.name, character_path(character) %>
+</div>
+<p></p>
+
+<div>
+  <%= link_to "Edit this spell", edit_spell_path(@spell) %> |
+  <%= link_to "Back to spells", spells_path %>
+
+  <%= button_to "Destroy this spell", @spell, method: :delete, id: "destroy-button", style: "display: none;" %>
+
+  <script>
+  function toggleButtonVisibility() {
+    var button = document.getElementById("destroy-button");
+    var checkbox = document.getElementById("show-button");
+    if (checkbox.checked) {
+      button.style.display = "block";
+    } else {
+      button.style.display = "none";
+    }
+  }
+</script>
+</div>

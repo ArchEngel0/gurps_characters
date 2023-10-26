@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Skills</h1>
+
+<%= form_tag skills_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search skills" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="skills">
+  <% @skills.each do |skill| %>
+    <%= render skill %>
+    <p>
+      <%= link_to "Show this skill", skill %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New skill", new_skill_path %>
+
+<%= paginate @skills %>

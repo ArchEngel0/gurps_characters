@@ -1,0 +1,41 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @character %>
+
+
+
+<div>
+  <%= link_to "Edit this character", edit_character_path(@character) %> |
+  <%= link_to "Back to characters", characters_path %>
+
+  <%= button_to "Destroy this character", @character, method: :delete %>
+</div>
+
+
+<div>
+  <h3><%= @character.name %>'s Skills:</h3>
+  <% @character.skills.each do |skill| %>
+    <%= link_to skill.skill, skill_path(skill) %>
+  <% end %>
+</div>
+
+<div>
+  <h3><%= @character.name %>'s Spells:</h3>
+  <% @character.spells.each do |spell| %>
+    <%= link_to spell.spell, spell_path(spell) %>
+  <% end %>
+</div>
+
+<div>
+  <h3><%= @character.name %>'s Advantages:</h3>
+  <% @character.advantages.each do |advantage| %>
+    <%= link_to advantage.advantage, advantage_path(advantage) %>
+  <% end %>
+</div>
+
+<div>
+  <h3><%= @character.name %>'s Disadvantages:</h3>
+  <% @character.disadvantages.each do |disadvantage| %>
+    <%= link_to disadvantage.disadvantage, disadvantage_path(disadvantage) %>
+  <% end %>
+</div>

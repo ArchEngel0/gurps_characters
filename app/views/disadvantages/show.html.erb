@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @disadvantage %>
+
+<%# character name, and link to character %>
+<% character = Character.find(@disadvantage.character_id) %>
+<div>
+  Character: <%= link_to character.name, character_path(character) %>
+</div>
+<p></p>
+
+<div>
+  <%= link_to "Edit this disadvantage", edit_disadvantage_path(@disadvantage) %> |
+  <%= link_to "Back to disadvantages", disadvantages_path %>
+
+  <%= button_to "Destroy this disadvantage", @disadvantage, method: :delete %>
+</div>

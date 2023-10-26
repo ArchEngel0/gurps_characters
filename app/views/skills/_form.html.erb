@@ -1,0 +1,57 @@
+<%= form_with(model: skill) do |form| %>
+  <% if skill.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+
+      <ul>
+        <% skill.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :skill, style: "display: block" %>
+    <%= form.text_field :skill %>
+  </div>
+
+  <div>
+    <%= form.label :tech_level_required, style: "display: block" %>
+    <%= form.check_box :tech_level_required %>
+  </div>
+
+  <div>
+    <%= form.label :specialization_required, style: "display: block" %>
+    <%= form.check_box :specialization_required %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :defaults, style: "display: block" %>
+    <%= form.text_field :defaults %>
+  </div>
+
+  <div>
+    <%= form.label :difficulty, style: "display: block" %>
+    <%= form.text_field :difficulty %>
+  </div>
+
+  <div>
+    <%= form.label :attribute_modifiers, style: "display: block" %>
+    <%= form.text_field :attribute_modifiers %>
+  </div>
+
+  <div>
+    <%= form.label :character_id, style: "display: block" %>
+    <%= form.text_field :character_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

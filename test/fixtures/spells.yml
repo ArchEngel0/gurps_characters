@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spell: MyString
+  spell_class: MyString
+  description: MyString
+  duration: MyString
+  cost_to_cast: MyString
+  cost_to_maintain: MyString
+  time_to_cast: MyString
+  prerequisites: MyString
+  difficulty: MyString
+  spell_college: MyString
+  item_enchantment: MyString
+  character: one
+
+two:
+  spell: MyString
+  spell_class: MyString
+  description: MyString
+  duration: MyString
+  cost_to_cast: MyString
+  cost_to_maintain: MyString
+  time_to_cast: MyString
+  prerequisites: MyString
+  difficulty: MyString
+  spell_college: MyString
+  item_enchantment: MyString
+  character: two

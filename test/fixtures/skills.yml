@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  skill: MyString
+  tech_level_required: false
+  specialization_required: false
+  description: MyString
+  defaults: MyString
+  difficulty: MyString
+  attribute_modifiers: MyString
+  character: one
+
+two:
+  skill: MyString
+  tech_level_required: false
+  specialization_required: false
+  description: MyString
+  defaults: MyString
+  difficulty: MyString
+  attribute_modifiers: MyString
+  character: two
