@@ -21,10 +21,14 @@
         <% end %>
       </div>
       <div class="d-flex mt-2">
-        <p class="card-text"><strong>Prerequisites:</strong> <%= @spell.prerequisites %></p>
-          <p class="card-text ms-4"><strong>Difficulty:</strong> <%= @spell.difficulty %></p>
+        <% if @spell.prerequisites.present?%>
+        <p class="card-text" style="margin-right: 30px;"><strong>Prerequisites:</strong> <%= link_spells(@spell.prerequisites) %></p>
+        <% end %>
+          <p class="card-text"><strong>Difficulty:</strong> <%= @spell.difficulty %></p>
       </div>
-      <p class="card-text"><strong>Item Enchantment Requirements:</strong> <%= @spell.item_enchantment %></p>
+      <% if @spell.item_enchantment.present? %>
+      <p class="card-text mt-2"><strong>Item Enchantment Requirements:</strong> <%= @spell.item_enchantment %></p>
+      <% end %>
     </div>
     <div>
       <p class="card-text"><%= @spell.spell_college %></p>
