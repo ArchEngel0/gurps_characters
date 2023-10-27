@@ -44,7 +44,7 @@
 </div>
 
 <div class="mb-4">
-  <%= link_to "Edit this spell", edit_spell_path(@spell), class: "btn btn-primary me-2" %>
+  <%= link_to "Edit this spell", edit_spell_path(@spell), id: "edit-button", style: "display: none; width: 120px;", class: "btn btn-primary me-2" %>
   <%= link_to "Back to spells", spells_path, class: "btn btn-secondary" %>
 </div>
 
@@ -56,11 +56,14 @@
 <script>
   function toggleButtonVisibility() {
     var button = document.getElementById("destroy-button");
+    var buttonEdit = document.getElementById("edit-button");
     var checkbox = document.getElementById("show-button");
     if (checkbox.checked) {
       button.style.display = "block";
+      buttonEdit.style.display = "block";
     } else {
       button.style.display = "none";
+      buttonEdit.style.display = "none";
     }
   }
 </script>
