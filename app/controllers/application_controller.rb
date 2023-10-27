@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   def link_spells(text)
     return "" if text.nil?
-    Spell.all.each do |spell|
-      text.gsub!(spell.spell, "<a href='/spells/#{spell.id}'>#{spell.spell}</a>")
+    Spell.all.sort_by { |spell| -spell.spell.length }.each do |spell|
+      text.gsub!(/\b#{spell.spell}\b/, "<a href='/spells/#{spell.id}'>#{spell.spell}</a>")
     end
     text.html_safe
   end
