@@ -41,3 +41,15 @@ The Disadvantages List table will use the following columns:
 
 I also intend to generate a Faker Table to use alongside and create associations with these tables from the Games sections in Faker.
 ---This will be a Characters Table
+
+# Commands for Running on Another Device
+
+https://stackoverflow.com/questions/61002681/connecting-to-wsl2-server-via-local-network
+
+Run these in Admin Powershell:
+`netsh advfirewall firewall add rule name="Allowing LAN connections" dir=in action=allow protocol=TCP localport=3000`
+
+`netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=3000 connectaddress=172.26.124.214 connectport=3000`
+
+Run this in your WSL terminal:
+`rails server -b 0.0.0.0`
