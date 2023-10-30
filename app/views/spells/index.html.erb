@@ -23,15 +23,15 @@
               <h5 class="card-title"><%= spell.spell %></h5>
               <p class="card-text description-truncate"><%= spell.description %></p>
               <div class="d-flex">
-        <p class="card-text"><strong>Cost:</strong> <%= spell.cost_to_cast %></p>
+        <p class="card-text description-truncate"><strong>Cost:</strong> <%= spell.cost_to_cast %></p>
         <% if spell.cost_to_maintain.present? %>
-          <p class="card-text ms-4"><strong>Maintain:</strong> <%= spell.cost_to_maintain %></p>
+          <p class="card-text ms-4 description-truncate"><strong>Maintain:</strong> <%= spell.cost_to_maintain %></p>
         <% end %>
         <% if spell.time_to_cast.present? %>
-          <p class="card-text ms-4"><strong>Casting Time:</strong> <%= spell.time_to_cast %></p>
+          <p class="card-text ms-4 description-truncate"><strong>Casting Time:</strong> <%= spell.time_to_cast %></p>
         <% end %>
         <% if spell.duration.present? %>
-          <p class="card-text ms-4"><strong>Duration:</strong> <%= spell.duration %></p>
+          <p class="card-text ms-4 description-truncate"><strong>Duration:</strong> <%= spell.duration %></p>
         <% end %>
       </div>
             </div>
