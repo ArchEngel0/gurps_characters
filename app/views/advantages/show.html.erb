@@ -1,17 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-lg mx-auto">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @advantage %>
+  <%= render @advantage %>
 
-<%# character name, and link to character %>
-<% character = Character.find(@advantage.character_id) %>
-<div>
-  Character: <%= link_to character.name, character_path(character) %>
-</div>
-<p></p>
+  <%# character name, and link to character %>
+  <% character = Character.find(@advantage.character_id) %>
+  <div>
+    Character: <%= link_to character.name, character_path(character) %>
+  </div>
+  <p></p>
 
-<div>
-  <%= link_to "Edit this advantage", edit_advantage_path(@advantage) %> |
-  <%= link_to "Back to advantages", advantages_path %>
+  <div>
+    <%= link_to "Edit this advantage", edit_advantage_path(@advantage) %> |
+    <%= link_to "Back to advantages", advantages_path %>
 
-  <%= button_to "Destroy this advantage", @advantage, method: :delete %>
+    <%= button_to "Destroy this advantage", @advantage, method: :delete %>
+  </div>
 </div>

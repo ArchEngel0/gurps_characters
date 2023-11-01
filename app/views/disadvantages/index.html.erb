@@ -1,21 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-lg">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Disadvantages</h1>
+  <h1>Disadvantages</h1>
 
-<%= form_tag disadvantages_path, method: :get do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search disadvantages" %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-<div id="disadvantages">
-  <% @disadvantages.each do |disadvantage| %>
-    <%= render disadvantage %>
-    <p>
-      <%= link_to "Show this disadvantage", disadvantage %>
-    </p>
+  <%= form_tag disadvantages_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search disadvantages" %>
+    <%= submit_tag "Search" %>
   <% end %>
+
+  <div id="disadvantages">
+    <% @disadvantages.each do |disadvantage| %>
+      <%= render disadvantage %>
+      <p>
+        <%= link_to "Show this disadvantage", disadvantage %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New disadvantage", new_disadvantage_path %>
+
+  <%= paginate @disadvantages %>
 </div>
-
-<%= link_to "New disadvantage", new_disadvantage_path %>
-
-<%= paginate @disadvantages %>
